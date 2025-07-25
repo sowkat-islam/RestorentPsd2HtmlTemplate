@@ -1,46 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="container">
-   <div id="menu">
-    <div class="menu-item">
-      <a href="">HOME</a>
-    </div>
-    <div class="menu-item" id="submenu">
-      <a href="">SERVICES</a>
-      <div id="submenu-items">
-        <div class="sbi">SERVICES 1</div>
-        <div class="sbi">SERVICES 2</div>
-        <div class="sbi">SERVICES 3</div>
-        <div class="sbi">SERVICES 4</div>        
-      </div>
-    </div>
-    <div class="menu-item">
-      <a href="">SOCIALIZE</a>
-    </div>
-    <div class="menu-item">
-      <a href="">ABOUT</a>
-    </div>
-    <div class="menu-item">
-      <a href="">CONTACT</a>
-    </div>
-    
-   </div>
-   <div id="o" class="b">OPEN</div>
-   <div id="c" class="b">CLOSE</div>
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: gray;
+    display: flex;justify-content: center;
+}
+#menu{
+    display: flex;
+    justify-content: center;
+}
+.menu-item a{
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px 20px;
+    display:block;
+    color: white;
+}
+.menu-item a:hover{
+    background-color: red;
+}
+.b{
 
-  </div>
-</body>
-<script>
-const o = document.getElementById("o");
-const menu = document.getElementById("menu");
-o.addEventListener("click", function(){
-  menu.classList.toggle("active");
-});
-</script>
-</html>
+    font-size: 17px;
+    font-weight: bold;
+    padding: 10px 20px;
+    color: white;
+    background-color: green;
+    cursor: pointer;border: 1px solid red;
+}
+#o, #c{
+    display: none;
+}
+#submenu{
+    position: relative;
+}
+#submenu-items{
+    background-color: black;
+    position: absolute;
+    width: 200px;
+    top: 40px;
+    display: none;
+}
+#submenu:hover #submenu-items{
+   display: block;
+}
+.sbi{
+      font-size: 17px;
+    font-weight: bold;
+    padding: 10px 20px;
+    display:block;
+    color: white;
+}
+.sbi:hover{
+ background-color: red;
+}
+@media screen and (max-width:800px) {
+    #o{
+        display: flex;
+    }
+.container{
+   position: relative;
+   justify-content: end;
+}
+
+    #menu{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top:43px;
+    width:100%;
+    background-color: gray;
+}
+.menu-item a:hover{
+    color: rgb(0, 0, 0);
+}
+#menu.active{
+    display: flex;
+}
+#submenu-items.activeitems {
+  display: flex;
+  flex-direction: column;
+}
+}

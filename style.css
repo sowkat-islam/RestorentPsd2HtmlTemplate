@@ -79,4 +79,8 @@
 #menu.active{
     display: flex;
 }
+#submenu-items.activeitems {
+  display: flex;
+  flex-direction: column;
+}
 }

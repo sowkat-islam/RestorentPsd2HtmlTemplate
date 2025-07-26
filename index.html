@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="height: 100%;">
   <div class="container">
    <div id="menu">
     <div class="menu-item">
-      <a href="">HOME</a>
+      <a class="activebg" href="">HOME</a>
     </div>
     <div class="menu-item" id="submenu">
       <a href="">SERVICES</a>
@@ -24,7 +24,7 @@
       <a href="">SOCIALIZE</a>
     </div>
     <div class="menu-item">
-      <a href="">ABOUT</a>
+      <a href="https://www.w3schools.com/">ABOUT</a>
     </div>
     <div class="menu-item">
       <a href="">CONTACT</a>
@@ -41,6 +41,12 @@ const o = document.getElementById("o");
 const menu = document.getElementById("menu");
 o.addEventListener("click", function(){
   menu.classList.toggle("active");
+  if(o.innerText==="OPEN"){
+    o.innerText="CLOSE";
+  }
+  else if(o.innerText==="CLOSE"){
+      o.innerText="OPEN";
+  }
 });
 const submenu = document.getElementById("submenu");
 const subitems = document.getElementById("submenu-items");
@@ -51,7 +57,16 @@ submenu.addEventListener("click", function(e){
   }
 });
 
+    const menuItems = document.querySelectorAll("a");
 
+    menuItems.forEach(function (item) {
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        menuItems.forEach(el => el.classList.remove("activebg"));
+        this.classList.add("activebg");
+      });
+    });
+console.log(menuItems.length);
 
 </script>
 </html>

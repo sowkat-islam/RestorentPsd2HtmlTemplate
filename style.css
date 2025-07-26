@@ -54,30 +54,45 @@
 .sbi:hover{
  background-color: red;
 }
+.activebg{
+    background-color: red;
+}
 @media screen and (max-width:800px) {
     #o{
         display: flex;
     }
 .container{
    position: relative;
-   justify-content: end;
+   justify-content: end;z-index: 100;
 }
 
     #menu{
-    display: none;
+    display:flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     flex-direction: column;
     position: absolute;
-    top:43px;
+   top:43px;
+       left:0;
     width:100%;
+    height: -0vh;
     background-color: gray;
+    transition:all 0.9s ease;
+    z-index: -1;opacity: 0;
+    
 }
-.menu-item a:hover{
-    color: rgb(0, 0, 0);
+.menu-item a{
+    color: rgb(255, 255, 255);
+    text-align: left;
 }
 #menu.active{
     display: flex;
+       height: 100vh;
+        opacity: 1;   
+ 
+
+
+
 }
 #submenu-items.activeitems {
   display: flex;
